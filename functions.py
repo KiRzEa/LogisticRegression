@@ -17,7 +17,7 @@ def sigmoid(X):
 def computeCost(X, y, Theta, lambda_):
     m = np.size(y)
     z = sigmoid(X @ Theta)
-    J = ((np.log(z) @ (-y)) - (np.log(1 - z) @ (1 - y))) / m
+    J = ((np.log(z) @ (-y)) -  (np.log(1 - z) @ (1 - y))) / m
     return J
 
 def computeGradient(X, y, Theta, m):
@@ -33,7 +33,7 @@ def GradientDescent(X, y, Theta, alpha=1, iter=1000, lambda_=1):
     return Theta, J_hist
 
 def normalize(X):
-    return (X - np.mean(X,axis=0)) / (np.max(X) - np.min(X)).values
+    return (X - np.mean(X,axis=0)) / np.std(X,axis=0)
 
 def predict(ypred, threshold=0.5):
     m = ypred.shape[0]
