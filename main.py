@@ -41,7 +41,9 @@ print(X_train_imbalanced.shape,y_train_imbalanced.shape)
 #Init parameters
 Theta = np.zeros(n_train + 1)
 #Find optimized parameters
+#FIXME -----------------------------------------------------
 Theta, J_hist = GradientDescent(X_train, y_train, Theta)
+#FIXME -----------------------------------------------------
 #Testing
 z = sigmoid(X_test @ Theta)
 predicted = predict(z)
